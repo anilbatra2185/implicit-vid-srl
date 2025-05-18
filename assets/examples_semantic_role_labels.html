@@ -1,0 +1,2443 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Role Labels</title>
+    
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    .column {
+        flex: 1;
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .item {
+        margin-bottom: 20px;
+    }
+    .verb {
+            color: #FFA500; /* Orange for Verb */
+    }
+    .what {
+        color: #28B463; /* Green for What */
+    }
+    .where_or_with {
+        color: #800080; /* Purple for Where/With */
+    }
+</style>
+
+
+</head>
+<body>
+
+
+<h1>Semantic Role Labels for "Mixed Berry Crepe Cones"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">add</span> - <span class="what">flour, salt, sugar</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 1-2: <span class="verb">stir in</span> - <span class="what">egg, butter</span> - <span class="where_or_with">flour, salt, sugar</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">whisk in</span> - <span class="what">milk</span> - <span class="where_or_with">flour, salt, sugar, egg, butter</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">pour</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">cook</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">flip</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">set</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with">aside</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">spread</span> - <span class="what">berries</span> - <span class="where_or_with">flour, salt, sugar, egg, butter, milk</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">fold</span> - <span class="what">flour, salt, sugar, egg, butter, milk, berries</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-2: <span class="verb">roll</span> - <span class="what">flour, salt, sugar, egg, butter, milk, berries</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">top</span> - <span class="what">flour, salt, sugar, egg, butter, milk, berries</span> - <span class="where_or_with">berries, whipped cream, powdered sugar</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">add</span> - <span class="what">flour, salt, sugar</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 1-2: <span class="verb">stir in</span> - <span class="what">flour, salt, sugar</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">whisk in</span> - <span class="what">eggs, butter</span> - <span class="where_or_with">flour, salt, sugar</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">pour</span> - <span class="what">batter</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">cook</span> - <span class="what">batter</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">flip</span> - <span class="what">crepe</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">set</span> - <span class="what">crepe</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">spread</span> - <span class="what">berries</span> - <span class="where_or_with">crepe</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">fold</span> - <span class="what">crepe</span> - <span class="where_or_with">berries</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-2: <span class="verb">roll</span> - <span class="what">crepe</span> - <span class="where_or_with">berries</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">top</span> - <span class="what">crepe</span> - <span class="where_or_with">whipped cream, berries</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">add</span> - <span class="what">flour, salt, sugar</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">stir in</span> - <span class="what">egg, butter</span> - <span class="where_or_with">flour, salt, sugar</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">whisk in</span> - <span class="what">milk</span> - <span class="where_or_with">flour, salt, sugar, egg, butter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">batter</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">cook</span> - <span class="what">batter</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">flip</span> - <span class="what">crepe</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">set</span> - <span class="what">crepes</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">spread</span> - <span class="what">berries</span> - <span class="where_or_with">crepe</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">fold</span> - <span class="what">crepe</span> - <span class="where_or_with">berries</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">roll</span> - <span class="what">crepe</span> - <span class="where_or_with">berries</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">top</span> - <span class="what">crepe</span> - <span class="where_or_with">berries, whipped cream, powdered sugar</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">add</span> - <span class="what">flour, salt, sugar</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">stir in</span> - <span class="what">egg, butter</span> - <span class="where_or_with">flour, salt, sugar</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">whisk in</span> - <span class="what">milk</span> - <span class="where_or_with">batter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">batter</span> - <span class="where_or_with">pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">cook</span> - <span class="what">batter</span> - <span class="where_or_with">pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">flip</span> - <span class="what">batter</span> - <span class="where_or_with">pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">set</span> - <span class="what">batter</span> - <span class="where_or_with">pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">spread</span> - <span class="what">berries</span> - <span class="where_or_with">batter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">fold</span> - <span class="what">batter</span> - <span class="where_or_with">berries</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">roll</span> - <span class="what">batter</span> - <span class="where_or_with">berries</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">top</span> - <span class="what">berries, whipped cream, powdered sugar</span> - <span class="where_or_with">batter</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sift</span> - <span class="what">flour, salt, sugar</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">add</span> - <span class="what">egg, butter</span> - <span class="where_or_with">flour, salt, sugar</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-3: <span class="verb">stir in</span> - <span class="what">milk</span> - <span class="where_or_with">flour, salt, sugar, egg, butter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with">pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">cook</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">flip</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">set</span> - <span class="what">flour, salt, sugar, egg, butter, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">spread</span> - <span class="what">berries</span> - <span class="where_or_with">flour, salt, sugar, egg, butter, milk</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">fold</span> - <span class="what">flour, salt, sugar, egg, butter, milk, berries</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">roll</span> - <span class="what">flour, salt, sugar, egg, butter, milk, berries</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">top</span> - <span class="what">flour, salt, sugar, egg, butter, milk, berries</span> - <span class="where_or_with">whipped cream, powdered sugar</span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Make Tomato Soup"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">heat</span> - <span class="what">olive oil</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 1-2: <span class="verb">saute</span> - <span class="what">chopped onion</span> - <span class="where_or_with">olive oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">tomatoes</span> - <span class="where_or_with">olive oil, onion</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">stir</span> - <span class="what">tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">add</span> - <span class="what">salt, pepper</span> - <span class="where_or_with">tomatoes, olive oil, onion</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">stir</span> - <span class="what">salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">cook</span> - <span class="what">salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">add</span> - <span class="what">tomato paste</span> - <span class="where_or_with">salt, pepper, tomatoes, olive oil, onion</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">add</span> - <span class="what">chicken stock</span> - <span class="where_or_with">salt, pepper, tomatoes, olive oil, onion</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">stir</span> - <span class="what">chicken stock, salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">add</span> - <span class="what">potatoes</span> - <span class="where_or_with">chicken stock, salt, pepper, tomatoes, olive oil, onion</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">simmer</span> - <span class="what">potatoes, chicken stock, salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">add</span> - <span class="what">basil leaves</span> - <span class="where_or_with">potatoes, chicken stock, salt, pepper, tomatoes, olive oil, onion</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-2: <span class="verb">blend</span> - <span class="what">basil leaves, potatoes, chicken stock, salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 9-1: <span class="verb">take out</span> - <span class="what">basil leaves, potatoes, chicken stock, salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 9-2: <span class="verb">garnish</span> - <span class="what">basil leaves, potatoes, chicken stock, salt, pepper, tomatoes, olive oil, onion</span> - <span class="where_or_with">basil leaves</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">heat</span> - <span class="what">oil</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 1-2: <span class="verb">saute</span> - <span class="what">onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">tomatoes</span> - <span class="where_or_with">onions</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">stir</span> - <span class="what">tomatoes, onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">add</span> - <span class="what">salt</span> - <span class="where_or_with">tomatoes, onions</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">stir</span> - <span class="what">salt, tomatoes, onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">cook</span> - <span class="what">salt, tomatoes, onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">add</span> - <span class="what">water</span> - <span class="where_or_with">salt, tomatoes, onions</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">add</span> - <span class="what">basil</span> - <span class="where_or_with">water, salt, tomatoes, onions</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">stir</span> - <span class="what">basil, water, salt, tomatoes, onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">add</span> - <span class="what">cream</span> - <span class="where_or_with">basil, water, salt, tomatoes, onions</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">simmer</span> - <span class="what">cream, basil, water, salt, tomatoes, onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">add</span> - <span class="what">spinach</span> - <span class="where_or_with">cream, basil, water, salt, tomatoes, onions</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-2: <span class="verb">blend</span> - <span class="what">spinach, cream, basil, water, salt, tomatoes, onions</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 9-1: <span class="verb">take out</span> - <span class="what">soup</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 9-2: <span class="verb">garnish</span> - <span class="what">soup</span> - <span class="where_or_with">basil</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">heat</span> - <span class="what">olive oil</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">saute</span> - <span class="what">chopped onion</span> - <span class="where_or_with">olive oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">fresh chopped tomatoes</span> - <span class="where_or_with">chopped onion</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">fresh chopped tomatoes, chopped onion</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">add</span> - <span class="what">salt, pepper</span> - <span class="where_or_with">fresh chopped tomatoes, chopped onion</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">stir</span> - <span class="what">salt, pepper, fresh chopped tomatoes, chopped onion</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cook</span> - <span class="what">fresh chopped tomatoes, chopped onion, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">add</span> - <span class="what">tomato paste</span> - <span class="where_or_with">fresh chopped tomatoes, chopped onion, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">chicken stock</span> - <span class="where_or_with">tomato paste, fresh chopped tomatoes, chopped onion, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">stir</span> - <span class="what">chicken stock, tomato paste, fresh chopped tomatoes, chopped onion, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">add</span> - <span class="what">peeled and chopped potatoes</span> - <span class="where_or_with">chicken stock, tomato paste, fresh chopped tomatoes, chopped onion, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">simmer</span> - <span class="what">peeled and chopped potatoes, chicken stock, tomato paste, fresh chopped tomatoes, chopped onion, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">add</span> - <span class="what">fresh basil leaves</span> - <span class="where_or_with">peeled and chopped potatoes, chicken stock, tomato paste, fresh chopped tomatoes, chopped onion, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-2: <span class="verb">blend</span> - <span class="what">fresh basil leaves, peeled and chopped potatoes, chicken stock, tomato paste, fresh chopped tomatoes, chopped onion, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-1: <span class="verb">take out</span> - <span class="what">soup</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-2: <span class="verb">garnish</span> - <span class="what">soup</span> - <span class="where_or_with">basil leaves</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">heat</span> - <span class="what">olive oil</span> - <span class="where_or_with">pot</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">saute</span> - <span class="what">onion</span> - <span class="where_or_with">olive oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">tomatoes</span> - <span class="where_or_with">onion</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">tomatoes</span> - <span class="where_or_with">onion</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">add</span> - <span class="what">salt, pepper</span> - <span class="where_or_with">tomatoes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">stir</span> - <span class="what">salt, pepper</span> - <span class="where_or_with">tomatoes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cook</span> - <span class="what">tomatoes</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">add</span> - <span class="what">tomato paste</span> - <span class="where_or_with">tomatoes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">chicken stock</span> - <span class="where_or_with">tomatoes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">stir</span> - <span class="what">chicken stock</span> - <span class="where_or_with">tomatoes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">add</span> - <span class="what">potatoes</span> - <span class="where_or_with">soup</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">simmer</span> - <span class="what">soup</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">add</span> - <span class="what">basil leaves</span> - <span class="where_or_with">soup</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-2: <span class="verb">blend</span> - <span class="what">soup</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-1: <span class="verb">take out</span> - <span class="what">soup</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-2: <span class="verb">garnish</span> - <span class="what">basil leaves</span> - <span class="where_or_with">soup</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">heat</span> - <span class="what">olive oil</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">saute</span> - <span class="what">onion</span> - <span class="where_or_with">olive oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">tomatoes</span> - <span class="where_or_with">onion, olive oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">onion, tomatoes, olive oil</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">add</span> - <span class="what">salt, pepper</span> - <span class="where_or_with">onion, tomatoes, olive oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">stir</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cook</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">add</span> - <span class="what">tomato paste</span> - <span class="where_or_with">onion, tomatoes, olive oil, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-3: <span class="verb">stir</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper, tomato paste</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">chicken stock</span> - <span class="where_or_with">onion, tomatoes, olive oil, salt, pepper, tomato paste</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">stir</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">add</span> - <span class="what">potatoes</span> - <span class="where_or_with">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">simmer</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock, potatoes</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">add</span> - <span class="what">basil leaves</span> - <span class="where_or_with">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock, potatoes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">blend</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock, potatoes, basil leaves</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">take out</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock, potatoes, basil leaves</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-2: <span class="verb">garnish</span> - <span class="what">onion, tomatoes, olive oil, salt, pepper, tomato paste, chicken stock, potatoes, basil leaves</span> - <span class="where_or_with">basil leaves</span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Instant Noodle Lasagna Via Tasty Demais"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">lay down</span> - <span class="what">ramen noodles</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">pour</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with">ramen noodles</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">layer</span> - <span class="what">ham slices, cheese slices</span> - <span class="where_or_with">ramen noodles, water, heavy cream, tomato sauce, pepper, salt</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">parsley</span> - <span class="where_or_with">ramen noodles, water, heavy cream, tomato sauce, pepper, salt, ham slices, cheese slices</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">add</span> - <span class="what">ramen noodles</span> - <span class="where_or_with">ramen noodles, water, heavy cream, tomato sauce, pepper, salt, ham slices, cheese slices, parsley</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">pour</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with">ramen noodles, water, heavy cream, tomato sauce, pepper, salt, ham slices, cheese slices, parsley</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">top</span> - <span class="what">ramen noodles, water, heavy cream, tomato sauce, pepper, salt, ham slices, cheese slices, parsley</span> - <span class="where_or_with">ham slices, cheese slices</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-2: <span class="verb">sprinkle</span> - <span class="what">parmesan cheese, oregano</span> - <span class="where_or_with">ramen noodles, water, heavy cream, tomato sauce, pepper, salt, ham slices, cheese slices, parsley</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">bake</span> - <span class="what">ramen noodles, water, heavy cream, tomato sauce, pepper, salt, ham slices, cheese slices, parsley, parmesan cheese, oregano</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">water, tomato sauce, heavy cream, salt, pepper</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">lay down</span> - <span class="what">instant noodles</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">pour</span> - <span class="what">water, tomato sauce, heavy cream, salt, pepper</span> - <span class="where_or_with">instant noodles</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">layer</span> - <span class="what">ham, mozzarella</span> - <span class="where_or_with">instant noodles, water, tomato sauce, heavy cream, salt, pepper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">parsley</span> - <span class="where_or_with">ham, mozzarella, instant noodles, water, tomato sauce, heavy cream, salt, pepper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">add</span> - <span class="what">instant noodles</span> - <span class="where_or_with">parsley, ham, mozzarella, water, tomato sauce, heavy cream, salt, pepper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">pour</span> - <span class="what">water, tomato sauce, heavy cream, salt, pepper</span> - <span class="where_or_with">instant noodles, parsley, ham, mozzarella</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">top</span> - <span class="what">ham, mozzarella</span> - <span class="where_or_with">instant noodles, water, tomato sauce, heavy cream, salt, pepper, parsley</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-2: <span class="verb">sprinkle</span> - <span class="what">parmesan, oregano</span> - <span class="where_or_with">ham, mozzarella, instant noodles, water, tomato sauce, heavy cream, salt, pepper, parsley</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">bake</span> - <span class="what">parmesan, oregano, ham, mozzarella, instant noodles, water, tomato sauce, heavy cream, salt, pepper, parsley</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">lay down</span> - <span class="what">raw ramen noodles</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">pour</span> - <span class="what">half the tomato sauce mixture</span> - <span class="where_or_with">raw ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">layer</span> - <span class="what">ham slices, cheese slices</span> - <span class="where_or_with">half the tomato sauce mixture</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">parsley</span> - <span class="where_or_with">ham slices, cheese slices</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">raw ramen noodles</span> - <span class="where_or_with">parsley, ham slices, cheese slices</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">pour</span> - <span class="what">rest of sauce</span> - <span class="where_or_with">raw ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">top</span> - <span class="what">ham, cheese</span> - <span class="where_or_with">rest of sauce</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">sprinkle</span> - <span class="what">parmesan cheese, oregano</span> - <span class="where_or_with">ham, cheese</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">ramen noodles, tomato sauce mixture, ham, cheese, parmesan cheese, oregano</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">lay down</span> - <span class="what">ramen noodles</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">pour</span> - <span class="what">tomato sauce mixture</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">layer</span> - <span class="what">ham, cheese</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">parsley</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">ramen noodles</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">pour</span> - <span class="what">tomato sauce mixture</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">top</span> - <span class="what">ham, cheese</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">sprinkle</span> - <span class="what">parmesan cheese, oregano</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">baking pan</span> - <span class="where_or_with">oven</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">lay down</span> - <span class="what">ramen noodles</span> - <span class="where_or_with">baking pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">pour</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with">ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">layer</span> - <span class="what">ham, cheese</span> - <span class="where_or_with">water, heavy cream, tomato sauce, pepper, salt, ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">parsley</span> - <span class="where_or_with">ham, cheese, water, heavy cream, tomato sauce, pepper, salt, ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">ramen noodles</span> - <span class="where_or_with">ham, cheese, water, heavy cream, tomato sauce, pepper, salt, ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">pour</span> - <span class="what">water, heavy cream, tomato sauce, pepper, salt</span> - <span class="where_or_with">ham, cheese, water, heavy cream, tomato sauce, pepper, salt, ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">top</span> - <span class="what">ham, cheese</span> - <span class="where_or_with">water, heavy cream, tomato sauce, pepper, salt, ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">sprinkle</span> - <span class="what">parmesan cheese, oregano</span> - <span class="where_or_with">ham, cheese, water, heavy cream, tomato sauce, pepper, salt, ramen noodles</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">ham, cheese, water, heavy cream, tomato sauce, pepper, salt, ramen noodles, parmesan cheese, oregano</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Three Cheese Chicken Roll Ups"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, spinach</span> - <span class="where_or_with">oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">ricotta, parmesan, salt, pepper</span> - <span class="where_or_with">garlic, spinach, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">stir</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">season</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">salt, pepper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">add</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper</span> - <span class="where_or_with">chicken breasts, salt, pepper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-3: <span class="verb">roll</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">dredge</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts</span> - <span class="where_or_with">breadcrumbs</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">dredge</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts</span> - <span class="where_or_with">breadcrumbs</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-3: <span class="verb">place</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts, egg, breadcrumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">bake</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts, egg, breadcrumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">top</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts, egg, breadcrumbs</span> - <span class="where_or_with">marinara sauce, mozzarella</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">bake</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts, egg, breadcrumbs, marinara sauce, mozzarella</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">remove</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts, egg, breadcrumbs, marinara sauce, mozzarella</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-2: <span class="verb">top</span> - <span class="what">garlic, spinach, oil, ricotta, parmesan, salt, pepper, chicken breasts, egg, breadcrumbs, marinara sauce, mozzarella</span> - <span class="where_or_with">basil</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, spinach</span> - <span class="where_or_with">olive oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">ricotta, parmesan, salt, pepper</span> - <span class="where_or_with">garlic, spinach</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">stir</span> - <span class="what">ricotta, parmesan, salt, pepper, garlic, spinach</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">season</span> - <span class="what">chicken</span> - <span class="where_or_with">salt, pepper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">add</span> - <span class="what">ricotta, parmesan, salt, pepper, garlic, spinach</span> - <span class="where_or_with">chicken</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-3: <span class="verb">roll</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">dredge</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach</span> - <span class="where_or_with">egg</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">dredge</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg</span> - <span class="where_or_with">breadcrumbs</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-3: <span class="verb">place</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg, breadcrumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">bake</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg, breadcrumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">top</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg, breadcrumbs</span> - <span class="where_or_with">sauce</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">bake</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg, breadcrumbs, sauce</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">remove</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg, breadcrumbs, sauce</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-2: <span class="verb">top</span> - <span class="what">chicken, ricotta, parmesan, salt, pepper, garlic, spinach, egg, breadcrumbs, sauce</span> - <span class="where_or_with">basil</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, spinach</span> - <span class="where_or_with">oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">ricotta, parmesan, salt, pepper</span> - <span class="where_or_with">garlic, spinach</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">ricotta, parmesan, salt, pepper, garlic, spinach</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">season</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">cheese mixture</span> - <span class="where_or_with">chicken breasts</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-3: <span class="verb">roll</span> - <span class="what">chicken breasts, cheese mixture</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">dredge</span> - <span class="what">chicken breast roll-up</span> - <span class="where_or_with">egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">dredge</span> - <span class="what">chicken breast roll-up, egg</span> - <span class="where_or_with">breadcrumbs</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-3: <span class="verb">place</span> - <span class="what">chicken breast roll-up, egg, breadcrumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">bake</span> - <span class="what">chicken breast roll-up, egg, breadcrumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">top</span> - <span class="what">chicken breast roll-up, egg, breadcrumbs</span> - <span class="where_or_with">marinara sauce, mozzarella</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">chicken breast roll-up, egg, breadcrumbs, marinara sauce, mozzarella</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">remove</span> - <span class="what">chicken breast roll-up, egg, breadcrumbs, marinara sauce, mozzarella</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-2: <span class="verb">top</span> - <span class="what">chicken breast roll-up, egg, breadcrumbs, marinara sauce, mozzarella</span> - <span class="where_or_with">basil</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, spinach</span> - <span class="where_or_with">oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">ricotta, parmesan</span> - <span class="where_or_with">spinach, garlic, oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">ricotta, parmesan</span> - <span class="where_or_with">spinach, garlic, oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">season</span> - <span class="what">chicken breasts</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">cheese mixture</span> - <span class="where_or_with">chicken breasts</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-3: <span class="verb">roll</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">cheese mixture</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">dredge</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">dredge</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">bread crumbs</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-3: <span class="verb">place</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">8×8 or 9×9 baking dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">bake</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">25 minutes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">top</span> - <span class="what">marinara sauce, mozzarella</span> - <span class="where_or_with">chicken breasts</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">25 minutes</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">remove</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">oven</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-2: <span class="verb">top</span> - <span class="what">basil</span> - <span class="where_or_with">chicken breasts</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, spinach</span> - <span class="where_or_with">oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">ricotta, parmesan, salt, pepper</span> - <span class="where_or_with">garlic, spinach, oil</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">ricotta, parmesan, salt, pepper, garlic, spinach, oil</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">season</span> - <span class="what">chicken breasts</span> - <span class="where_or_with">salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">ricotta, parmesan, salt, pepper, garlic, spinach, oil</span> - <span class="where_or_with">chicken breasts</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-3: <span class="verb">roll</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">dredge</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil</span> - <span class="where_or_with">egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">dredge</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg</span> - <span class="where_or_with">bread crumbs</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-3: <span class="verb">place</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg, bread crumbs</span> - <span class="where_or_with">dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">bake</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">top</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg, bread crumbs</span> - <span class="where_or_with">marinara sauce, mozzarella</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg, bread crumbs, marinara sauce, mozzarella</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">remove</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg, bread crumbs, marinara sauce, mozzarella</span> - <span class="where_or_with">oven</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-2: <span class="verb">top</span> - <span class="what">chicken breasts, ricotta, parmesan, salt, pepper, garlic, spinach, oil, egg, bread crumbs, marinara sauce, mozzarella</span> - <span class="where_or_with">basil</span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "4 Ingredient Kiwi Strawberry Fruit Leathers"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">blend</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">pour</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">sift</span> - <span class="what">seeds</span> - <span class="where_or_with">strawberries, kiwi, sugar, lemon juice</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">pour</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">spread</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">bake</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">cool</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">cut</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">roll</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-2: <span class="verb">tie</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with">ribbon</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">blend</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">pour</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">sift</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">pour</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">spread</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">bake</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">cool</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">cut</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">roll</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-2: <span class="verb">tie</span> - <span class="what">strawberries, kiwis, sugar, lemon</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">blend</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">pour</span> - <span class="what">puree</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">sift</span> - <span class="what">seeds</span> - <span class="where_or_with">puree</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">puree</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">spread</span> - <span class="what">puree</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">bake</span> - <span class="what">puree</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">cool</span> - <span class="what">puree</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">cut</span> - <span class="what">puree</span> - <span class="where_or_with">strips</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">roll</span> - <span class="what">strips</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">tie</span> - <span class="what">strips</span> - <span class="where_or_with">ribbon, twine</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">blend</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">pour</span> - <span class="what">puree</span> - <span class="where_or_with">strainer</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">sift</span> - <span class="what">seeds</span> - <span class="where_or_with">puree</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">spread</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">bake</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">cool</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">cut</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">roll</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">tie</span> - <span class="what">puree</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">blend</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">pour</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with">strainer</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">sift</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with">parchment paper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">spread</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">bake</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">cool</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">cut</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">roll</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-2: <span class="verb">tie</span> - <span class="what">strawberries, kiwi, sugar, lemon juice</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Waffle Grilled Cheese"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">stir</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">pour</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">cook</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">add</span> - <span class="what">cheese slices</span> - <span class="where_or_with">waffle mix, rosemary, egg, oil, milk</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">fold</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">cook</span> - <span class="what">waffle mix, rosemary, egg, oil, milk, cheese slices</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">waffle mix, rosemary, egg, vegetable oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">stir</span> - <span class="what">waffle mix, rosemary, egg, vegetable oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">pour</span> - <span class="what">waffle mix, rosemary, egg, vegetable oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">cook</span> - <span class="what">waffle mix, rosemary, egg, vegetable oil, milk</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">add</span> - <span class="what">cheese</span> - <span class="where_or_with">waffle</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">fold</span> - <span class="what">waffle</span> - <span class="where_or_with">cheese</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">cook</span> - <span class="what">waffle, cheese</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">stir</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">batter</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cook</span> - <span class="what">waffle</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">slices of cheese</span> - <span class="where_or_with">half of the waffle</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">fold</span> - <span class="what">other half of the waffle</span> - <span class="where_or_with">slices of cheese</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">cook</span> - <span class="what">waffle, cheese</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">stir</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">batter</span> - <span class="where_or_with">waffle iron</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cook</span> - <span class="what">waffle</span> - <span class="where_or_with">waffle iron</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">cheese</span> - <span class="where_or_with">waffle</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">fold</span> - <span class="what">waffle</span> - <span class="where_or_with">waffle</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">cook</span> - <span class="what">waffle</span> - <span class="where_or_with">waffle iron</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">stir</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">pour</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with">waffle iron</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cook</span> - <span class="what">waffle mix, rosemary, egg, oil, milk</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">add</span> - <span class="what">cheese</span> - <span class="where_or_with">waffle mix, rosemary, egg, oil, milk</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">fold</span> - <span class="what">waffle mix, rosemary, egg, oil, milk, cheese</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">cook</span> - <span class="what">waffle mix, rosemary, egg, oil, milk, cheese</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Double Chocolate Box Brownies"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">cake mix, milk, oil, egg</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">chopped dark chocolate, chopped white chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">mix</span> - <span class="what">cake mix, milk, oil, egg, chopped dark chocolate, chopped white chocolate</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">spread</span> - <span class="what">cake mix, milk, oil, egg, chopped dark chocolate, chopped white chocolate</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">chopped dark chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg, chopped dark chocolate, chopped white chocolate</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">chocolate cake mix</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">whole milk, canola oil, egg</span> - <span class="where_or_with">chocolate cake mix</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">mix</span> - <span class="what">chocolate cake mix, whole milk, canola oil, egg</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">spread</span> - <span class="what">chocolate cake mix, whole milk, canola oil, egg</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">dark chocolate</span> - <span class="where_or_with">chocolate cake mix, whole milk, canola oil, egg</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">cake mix, milk, oil, egg</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">chopped dark chocolate, chopped white chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">mix</span> - <span class="what">cake mix, milk, oil, egg, chopped dark chocolate, chopped white chocolate</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">spread</span> - <span class="what">brownie batter</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">remaining chopped dark chocolate</span> - <span class="where_or_with">brownie batter</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">cake mix, milk, oil, egg</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">chopped dark chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">mix</span> - <span class="what">chopped dark chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">spread</span> - <span class="what">brownie batter</span> - <span class="where_or_with">pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">chopped dark chocolate</span> - <span class="where_or_with">brownie batter</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">cake mix, milk, oil, egg</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">dark chocolate, white chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">mix</span> - <span class="what">cake mix, milk, oil, egg, dark chocolate, white chocolate</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">spread</span> - <span class="what">cake mix, milk, oil, egg, dark chocolate, white chocolate</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">sprinkle</span> - <span class="what">dark chocolate</span> - <span class="where_or_with">cake mix, milk, oil, egg, dark chocolate, white chocolate</span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Toffee Apple Bread Pudding"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">heat</span> - <span class="what">butter, brown sugar</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">stir in</span> - <span class="what">apple slices</span> - <span class="where_or_with">brown sugar, butter</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">lay out</span> - <span class="what">apple slices, brown sugar, butter</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread chunks</span> - <span class="where_or_with">apple slices, brown sugar, butter</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">place</span> - <span class="what">apple slices, brown sugar, butter</span> - <span class="where_or_with">bread chunks, apple slices, brown sugar, butter</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">mix</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">pour</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with">apple slices, brown sugar, butter, bread chunks</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">bake</span> - <span class="what">cream, milk, eggs, apple slices, brown sugar, butter, bread chunks</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">pour</span> - <span class="what">brown sugar, butter</span> - <span class="where_or_with">cream, milk, eggs, apple slices, brown sugar, butter, bread chunks</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 9-1: <span class="verb">serve</span> - <span class="what">cream, milk, eggs, apple slices, brown sugar, butter, bread chunks</span> - <span class="where_or_with">vanilla ice cream</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">heat</span> - <span class="what">brown sugar, butter</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">stir in</span> - <span class="what">apples</span> - <span class="where_or_with">brown sugar, butter</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">lay out</span> - <span class="what">apples</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread</span> - <span class="where_or_with">apples</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">place</span> - <span class="what">apples</span> - <span class="where_or_with">bread</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">mix</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">pour</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with">bread, apples</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">bake</span> - <span class="what">bread, apples, cream, milk, eggs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">pour</span> - <span class="what">toffee</span> - <span class="where_or_with">bread, apples, cream, milk, eggs</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 9-1: <span class="verb">serve</span> - <span class="what">bread, apples, cream, milk, eggs, toffee</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">heat</span> - <span class="what">brown sugar, butter</span> - <span class="where_or_with">low heat</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">stir in</span> - <span class="what">apple slices</span> - <span class="where_or_with">brown sugar, butter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">lay out</span> - <span class="what">half of the apple slices</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread chunks</span> - <span class="where_or_with">half of the apple slices</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">place</span> - <span class="what">rest of the apple slices</span> - <span class="where_or_with">bread chunks</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">mix</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">pour</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with">apple slices, bread</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">apple slices, bread, cream, milk, eggs</span> - <span class="where_or_with">1 hour</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">pour</span> - <span class="what">toffee mixture</span> - <span class="where_or_with">bread pudding</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-1: <span class="verb">serve</span> - <span class="what">bread pudding</span> - <span class="where_or_with">vanilla ice cream</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">heat</span> - <span class="what">brown sugar, butter</span> - <span class="where_or_with">saucepan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">stir in</span> - <span class="what">apple slices</span> - <span class="where_or_with">brown sugar, butter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">lay out</span> - <span class="what">apple slices</span> - <span class="where_or_with">oven-proof dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread chunks</span> - <span class="where_or_with">oven-proof dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">place</span> - <span class="what">apple slices</span> - <span class="where_or_with">oven-proof dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">mix</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with">jug</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">pour</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with">oven-proof dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">oven-proof dish</span> - <span class="where_or_with">oven</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">pour</span> - <span class="what">toffee mixture</span> - <span class="where_or_with">oven-proof dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-1: <span class="verb">serve</span> - <span class="what">bread pudding</span> - <span class="where_or_with">vanilla ice cream</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">heat</span> - <span class="what">brown sugar, butter</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">stir in</span> - <span class="what">apple slices</span> - <span class="where_or_with">brown sugar, butter</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">lay out</span> - <span class="what">apple slices</span> - <span class="where_or_with">dish</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread chunks</span> - <span class="where_or_with">apple slices</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">place</span> - <span class="what">apple slices</span> - <span class="where_or_with">bread chunks</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">mix</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">pour</span> - <span class="what">cream, milk, eggs</span> - <span class="where_or_with">apple slices, bread chunks</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">bake</span> - <span class="what">apple slices, bread chunks, cream, milk, eggs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">pour</span> - <span class="what">brown sugar, butter, apple slices</span> - <span class="where_or_with">apple slices, bread chunks, cream, milk, eggs</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 9-1: <span class="verb">serve</span> - <span class="what">apple slices, bread chunks, cream, milk, eggs, brown sugar, butter</span> - <span class="where_or_with">vanilla ice cream</span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Homemade Falafel"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">blend</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">transfer</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread crumbs</span> - <span class="where_or_with">chickpeas, onion, parsley, garlic, lemon juice, spices</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-3: <span class="verb">mix</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">cover</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">freeze</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">unwrap</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">ball</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">fry</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with">oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">transfer</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-2: <span class="verb">sprinkle</span> - <span class="what">salt</span> - <span class="where_or_with">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">serve</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with">sandwich, salad topping, bed greens, tahini sauce</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">combine</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">blend</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">transfer</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread crumbs</span> - <span class="where_or_with">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-3: <span class="verb">mix</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">cover</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">freeze</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">unwrap</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">ball</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">fry</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-1: <span class="verb">transfer</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 7-2: <span class="verb">sprinkle</span> - <span class="what">salt</span> - <span class="where_or_with">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 8-1: <span class="verb">serve</span> - <span class="what">chickpeas, red onion, garlic, parsley, cumin, red pepper, salt, pepper, lemon juice, bread crumbs</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">blend</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">transfer</span> - <span class="what">chickpea mixture</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread crumbs</span> - <span class="where_or_with">chickpea mixture</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-3: <span class="verb">mix</span> - <span class="what">chickpea mixture, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cover</span> - <span class="what">chickpea mixture, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">freeze</span> - <span class="what">chickpea mixture, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">unwrap</span> - <span class="what">chickpea mixture, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">ball</span> - <span class="what">chickpea mixture, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">fry</span> - <span class="what">falafel balls</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">transfer</span> - <span class="what">falafel balls</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">sprinkle</span> - <span class="what">salt</span> - <span class="where_or_with">falafel balls</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">serve</span> - <span class="what">falafel balls</span> - <span class="where_or_with">tahini sauce</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">blend</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with">bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">transfer</span> - <span class="what">chickpea mixture</span> - <span class="where_or_with">large bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread crumbs</span> - <span class="where_or_with">large bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-3: <span class="verb">mix</span> - <span class="what">chickpea mixture, bread crumbs</span> - <span class="where_or_with">large bowl</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">cover</span> - <span class="what">chickpea mixture</span> - <span class="where_or_with">plastic wrap</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">freeze</span> - <span class="what">chickpea mixture</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">unwrap</span> - <span class="what">chickpea mixture</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">ball</span> - <span class="what">chickpea mixture</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">fry</span> - <span class="what">chickpea balls</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">transfer</span> - <span class="what">chickpea balls</span> - <span class="where_or_with">paper towel</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">sprinkle</span> - <span class="what">salt</span> - <span class="where_or_with">chickpea balls</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">serve</span> - <span class="what">chickpea balls</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">combine</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 1-2: <span class="verb">blend</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">transfer</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">add</span> - <span class="what">bread crumbs</span> - <span class="where_or_with">chickpeas, onion, parsley, garlic, lemon juice, spices</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-3: <span class="verb">mix</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">unwrap</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">ball</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">fry</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-1: <span class="verb">transfer</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span> - <span class="where_or_with">paper towel</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 7-2: <span class="verb">sprinkle</span> - <span class="what">salt</span> - <span class="where_or_with">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 8-1: <span class="verb">serve</span> - <span class="what">chickpeas, onion, parsley, garlic, lemon juice, spices, bread crumbs, salt</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+<h1>Semantic Role Labels for "Chicken Veggie Spring Rolls"</h1>
+
+<div class="container">
+    <div class="column">
+        <div class="header">Ground Truth</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, ginger</span> - <span class="where_or_with">oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">chicken, salt, pepper</span> - <span class="where_or_with">minced garlic, ginger</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">stir</span> - <span class="what">chicken, salt, pepper, garlic, ginger</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">stir in</span> - <span class="what">mushrooms</span> - <span class="where_or_with">chicken, salt, pepper, garlic, ginger</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">toss in</span> - <span class="what">cabbage</span> - <span class="where_or_with">chicken, salt, pepper, garlic, ginger, mushrooms</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">toss in</span> - <span class="what">carrots, scallions</span> - <span class="where_or_with">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">fill</span> - <span class="what">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage</span> - <span class="where_or_with">egg roll wrapper</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">fold</span> - <span class="what">egg roll wrapper, chicken, salt, pepper, garlic, ginger, mushrooms, cabbage</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-3: <span class="verb">seal</span> - <span class="what">egg roll wrapper, chicken, salt, pepper, garlic, ginger, mushrooms, cabbage</span> - <span class="where_or_with">egg wash</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-4: <span class="verb">fry</span> - <span class="what">egg roll wrapper, chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, egg wash</span> - <span class="where_or_with">oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">serve</span> - <span class="what">egg roll wrapper, chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, egg wash</span> - <span class="where_or_with">hoisin sauce</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V)</div>
+        
+            <div class="item">
+                <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, ginger</span> - <span class="where_or_with">oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-1: <span class="verb">add</span> - <span class="what">chicken breasts, salt, black pepper</span> - <span class="where_or_with">garlic, ginger, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 2-2: <span class="verb">stir</span> - <span class="what">chicken breasts, salt, black pepper, garlic, ginger, oil</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 3-1: <span class="verb">stir in</span> - <span class="what">shiitake mushrooms</span> - <span class="where_or_with">chicken breasts, salt, black pepper, garlic, ginger, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-1: <span class="verb">toss in</span> - <span class="what">cabbage</span> - <span class="where_or_with">shiitake mushrooms, chicken breasts, salt, black pepper, garlic, ginger, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 4-2: <span class="verb">toss in</span> - <span class="what">carrots, scallions</span> - <span class="where_or_with">cabbage, shiitake mushrooms, chicken breasts, salt, black pepper, garlic, ginger, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-1: <span class="verb">fill</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">carrots, scallions, cabbage, shiitake mushrooms, chicken breasts, salt, black pepper, garlic, ginger, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-2: <span class="verb">fold</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">carrots, scallions, cabbage, shiitake mushrooms, chicken breasts, salt, black pepper, garlic, ginger, oil</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-3: <span class="verb">seal</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">egg wash</span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 5-4: <span class="verb">fry</span> - <span class="what">spring rolls</span> - <span class="where_or_with"></span></span>
+            </div>
+            
+            <div class="item">
+                <span>Step 6-1: <span class="verb">serve</span> - <span class="what">spring rolls</span> - <span class="where_or_with">dipping sauce</span></span>
+            </div>
+            
+    </div>
+    <div class="column">
+        <div class="header">GPT-4o (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, ginger</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">chicken, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">chicken, salt, pepper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">stir in</span> - <span class="what">mushrooms</span> - <span class="where_or_with">chicken, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">toss in</span> - <span class="what">cabbage</span> - <span class="where_or_with">mushrooms, chicken, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">toss in</span> - <span class="what">carrots, scallions</span> - <span class="where_or_with">cabbage, mushrooms, chicken, salt, pepper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">fill</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">cabbage, mushrooms, chicken, salt, pepper, carrots, scallions</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">fold</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">cabbage, mushrooms, chicken, salt, pepper, carrots, scallions</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-3: <span class="verb">seal</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">egg wash</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-4: <span class="verb">fry</span> - <span class="what">egg roll wrapper</span> - <span class="where_or_with">cabbage, mushrooms, chicken, salt, pepper, carrots, scallions</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">serve</span> - <span class="what">spring rolls</span> - <span class="where_or_with">hoisin sauce</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">minced garlic, ginger</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">diced chicken</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">diced chicken</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">stir in</span> - <span class="what">salt, pepper</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-1: <span class="verb">toss in</span> - <span class="what">mushrooms</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 4-2: <span class="verb">toss in</span> - <span class="what">cabbage</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">fill</span> - <span class="what">chicken, mushrooms, cabbage, carrots, scallions</span> - <span class="where_or_with">egg roll wrapper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">fold</span> - <span class="what">chicken, mushrooms, cabbage, carrots, scallions</span> - <span class="where_or_with">egg roll wrapper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-3: <span class="verb">seal</span> - <span class="what">chicken, mushrooms, cabbage, carrots, scallions</span> - <span class="where_or_with">egg roll wrapper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-4: <span class="verb">fry</span> - <span class="what">chicken, mushrooms, cabbage, carrots, scallions</span> - <span class="where_or_with">medium pan</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">serve</span> - <span class="what">chicken, mushrooms, cabbage, carrots, scallions</span> - <span class="where_or_with">hoisin sauce, sauce of choice</span></span>
+        </div>
+        
+    </div>
+    <div class="column">
+        <div class="header">iSRL-Qwnen2-VL-7B (V+T)</div>
+        
+        <div class="item">
+            <span>Step 1-1: <span class="verb">sauté</span> - <span class="what">garlic, ginger</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-1: <span class="verb">add</span> - <span class="what">chicken, salt, pepper</span> - <span class="where_or_with">garlic, ginger</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 2-2: <span class="verb">stir</span> - <span class="what">chicken, salt, pepper, garlic, ginger</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-1: <span class="verb">stir in</span> - <span class="what">mushrooms</span> - <span class="where_or_with">chicken, salt, pepper, garlic, ginger</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 3-2: <span class="verb">stir in</span> - <span class="what">cabbage, carrots, scallions</span> - <span class="where_or_with">chicken, salt, pepper, garlic, ginger, mushrooms</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-1: <span class="verb">fill</span> - <span class="what">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, carrots, scallions</span> - <span class="where_or_with">egg roll wrapper</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-2: <span class="verb">fold</span> - <span class="what">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, carrots, scallions, egg roll wrapper</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-3: <span class="verb">seal</span> - <span class="what">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, carrots, scallions, egg roll wrapper</span> - <span class="where_or_with">egg wash</span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 5-4: <span class="verb">fry</span> - <span class="what">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, carrots, scallions, egg roll wrapper, egg wash</span> - <span class="where_or_with"></span></span>
+        </div>
+        
+        <div class="item">
+            <span>Step 6-1: <span class="verb">serve</span> - <span class="what">chicken, salt, pepper, garlic, ginger, mushrooms, cabbage, carrots, scallions, egg roll wrapper, egg wash</span> - <span class="where_or_with">hoisin sauce</span></span>
+        </div>
+        
+    </div>
+</div>
+
+
+</body>
+</html>
